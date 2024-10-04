@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import style from "./SingleCard.module.scss"
 
 
 export function SingleCard ({title, date, author, image, content}) {

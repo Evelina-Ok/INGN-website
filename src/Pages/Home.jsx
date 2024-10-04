@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
-import { NavLink } from "react-router-dom";
 import { allNews } from "../queries/allNews";
 import { useEffect } from "react";
 import { NewsCard } from "../Components/NewsCard/NewsCard";
@@ -33,11 +32,12 @@ export function Home() {
         date={item?.date}
         author={item?.author}
         image={item?.assets[0]?.url}
+        //slug is used as prop in NewsCard component. in Hygraph I called it petSlug, but I'm naming my prop slug
+        slug={item?.petSlug}
       >
       
-       <NavLink to={`./SingleNews/${item.petSlug}`}>Read more</NavLink>
       </NewsCard>
       ) )}
     </section>
   );
-}
+} 

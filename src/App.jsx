@@ -16,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<MainLayout />}>
           <Route index element={<Home/>} />
+          {/* path my query that leads to page element */}
           <Route path='/singleNews/:newsslug' element={<SingleNews/>}/>
           </Route>
         </Routes>
