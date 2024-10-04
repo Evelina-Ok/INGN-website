@@ -1,0 +1,33 @@
+@use "../../Styles/_placeholders.scss" as *;
+@use "../../Styles/_variables.scss" as *;
+
+.navStyle {
+    display: flex;
+   justify-content: left;
+    margin: 0 2rem;
+    gap: 4rem;
+    background-color: $white;
+    width: 100%;
+    
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        border-right: 2px solid $dark;
+    }
+
+    li {
+        list-style: none;
+        text-align: center;
+        padding: 0 2rem;
+        font-size: 1.2rem;
+        @extend %roboto;
+        border-left: 2px solid $dark;
+        
+
+        a{
+            color: $dark;
+            
+        }
+    }
+}

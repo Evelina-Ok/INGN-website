@@ -1,35 +1,37 @@
-import style from "./Navbar.scss"
+import style from "./Navbar.module.scss"
+import { NavLink } from "react-router-dom"
 
 export function Navbar () {
     return (
     <nav className={style.navStyle}>
+        <img src="src/assets/icons/INGN-logo.svg" alt="" />
         <ul>
             <li>
-                <Navlink to={"/"}>All</Navlink>
+                <NavLink to={"/"}>All</NavLink>
             </li>
 
             <li>
-                <Navlink to={"/space"}>Space</Navlink>
+                <NavLink to={"/space"}>Space</NavLink>
             </li>
 
             <li>
-                <Navlink to={"/food"}>Food</Navlink>
+                <NavLink to={"/food"}>Food</NavLink>
             </li>
 
             <li>
-                <Navlink to={"/brain"}>The Brain</Navlink>
+                <NavLink to={"/brain"}>The Brain</NavLink>
             </li>
 
             <li>
-                <Navlink to={"/earth"}>Earth</Navlink>
+                <NavLink to={"/earth"}>Earth</NavLink>
             </li>
 
             <li>
-                <Navlink to={"/marine"}>Marine</Navlink>
+                <NavLink to={"/marine"}>Marine</NavLink>
             </li>
 
             <li>
-                <Navlink to={"/smologies"}>Smologies</Navlink>
+                <NavLink to={"/smologies"}>Smologies</NavLink>
             </li>
         </ul>
     </nav>

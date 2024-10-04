@@ -1,44 +1,43 @@
 import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
 import { NavLink } from "react-router-dom";
-import { allNews } from "../queries/allNews"
+import { allNews } from "../queries/allNews";
 import { useEffect } from "react";
-import { NewsCard } from "../Components/NewsCard/NewsCard"; 
+import { NewsCard } from "../Components/NewsCard/NewsCard";
 
+export function Home() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["allNews"],
+    queryFn: async () => request(import.meta.env.VITE_PUBLIC_ENDPOINT, allNews),
+  });
+  console.log(data);
 
-export function Home () {
-  
-        const { data, isLoading, error} = useQuery({
-            queryKey: ["allNews"],
-            queryFn: async () => request(import.meta.env.VITE_PUBLIC_ENDPOINT, allNews),
-            
-            
-        });
-        console.log(data)
+  useEffect(() => {}, [data]);
 
-        useEffect(() => {
-        },[data])
+  if (isLoading) {
+    return <p>Loading news</p>;
+  }
+  if (error) {
+    return <p>Error{error.message}</p>;
+  }
 
-        if (isLoading) {
-            return <p>Loading news</p>
-        }
-        if (error) {
-            return <p>Error{error.message}</p>
-        }
-
-    return (
-        <NewsCard
-        key={data.articles.petSlug}
-        title={data.articles.title}
-        // first 100 character plus '...' .substring(0, 100)+"..."
-        content={data.articles.content}
-        date={data.articles.date}
-        author={data.articles.author}
-        image={data?.articles[0]?.assets[0]?.url}
-        >
-            {/* to={} */}
-        {/* <NavLink >Read more</NavLink> */}
-
-        </NewsCard>
-    );
+  return (
+    <section>
+         {/* // need to map the articles to show all of them, not just one */}
+         {data?.articles?.map((item, index) => (
+      <NewsCard
+        key={item.petSlug}
+        title={item.title}
+        // first 200 character plus '...' .substring(0, 200)+"..."
+        content={item.content.substring(0, 200)+"..."}
+        date={item?.date}
+        author={item?.author}
+        image={item?.assets[0]?.url}
+      >
+      
+       <NavLink to={`./SingleNews/${item.petSlug}`}>Read more</NavLink>
+      </NewsCard>
+      ) )}
+    </section>
+  );
 }
