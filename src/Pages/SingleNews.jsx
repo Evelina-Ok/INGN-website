@@ -18,7 +18,7 @@ export function SingleNews ({title, date, author, image, content}) {
     const {data, isLoading, error} = useQuery({
         queryKey: ["singleNews"],
         queryFn: async () => request(import.meta.env.VITE_PUBLIC_ENDPOINT, singleNews, {articleSlug: slug}),
-        enabled:!!slug,
+        // enabled:!!slug,
     });
 
     useEffect(() => {}, [data]);
@@ -28,7 +28,10 @@ export function SingleNews ({title, date, author, image, content}) {
       }
       if (error) {
         return <p>Error{error.message}</p>;
+
       }
+      console.log(data);
+      
 
     //   className={style.singleCardStyle}
     // className={style.textRed}
@@ -36,14 +39,14 @@ export function SingleNews ({title, date, author, image, content}) {
     <>
         <section >
         <SingleCard
-        key={item.petSlug}
-        title={item.title}       
-        content={item.content}
-        date={item?.date}
-        author={item?.author}
-        image={item?.assets[0]?.url}
-        //slug is used as prop in NewsCard component. in Hygraph I called it petSlug, but I'm naming my prop slug
-        slug={item?.petSlug}
+        key={data.article.petSlug}
+        title={data.article.title}       
+        content={data.article.content}
+        date={data.article?.date}
+        author={data.article?.author}
+        image={data.article?.assets[0]?.url}
+         //slug is used as prop in NewsCard component. in Hygraph I called it petSlug, but I'm naming my prop slug
+        slug={data.article?.petSlug}
       >
       
       </SingleCard>
