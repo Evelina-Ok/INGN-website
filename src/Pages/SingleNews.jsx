@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import request from "graphql-request";
 import { format } from "date-fns";
 import { useEffect } from "react";
-import { singleNews } from "../queries/SingleNews";
+import { singleNews } from "../queries/singleNews";
 import { useParams } from "react-router-dom";
 import { SingleCard } from "../Components/SingleCard/SingleCard";
 
