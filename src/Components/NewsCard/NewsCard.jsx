@@ -8,7 +8,7 @@ export function NewsCard ({title, date, author, image, content, slug}) {
         <>
        
         <div className={style.cardStyle}>
-            <div>
+            <div className={style.cardStyling}>
                 <h1>{title}</h1>
                 <p className={style.textRed}>{format(new Date(date), 'dd/MM-yy')} - by {author}</p>
                 <img src={image} alt="" />
@@ -18,4 +18,4 @@ export function NewsCard ({title, date, author, image, content, slug}) {
         </div>
     </>
     )
-}
+} 

@@ -8,14 +8,13 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import './App.scss'
 
-const helmetContext = {};
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <HelmetProvider context={helmetContext}>
+    <HelmetProvider>
       <Router>
         <Routes>
           <Route path='/' element={<MainLayout />}>

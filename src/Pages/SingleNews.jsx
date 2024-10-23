@@ -38,7 +38,11 @@ export function SingleNews ({title, date, author, image, content}) {
     return (
     <>
     <Helmet>
-      <title>{data.article.title} </title>
+      <title>{data.article.title}</title>
+      <meta name="description" content={data.article.title}/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content={data.article.title}/>
+      <meta property="og:url" content={`https://merry-kulfi-0d62b6.netlify.app/SingleNews/${data.article?.petSlug}`}/>
     </Helmet>
         <section >
         <SingleCard

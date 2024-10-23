@@ -4,6 +4,8 @@ import { allNews } from "../queries/allNews";
 import { useEffect } from "react";
 import { NewsCard } from "../Components/NewsCard/NewsCard";
 import { Helmet } from "react-helmet-async";
+import { Grid } from "../Components/Grid/Grid";
+
 
 
 export function Home() {
@@ -26,9 +28,15 @@ export function Home() {
     <>
     <Helmet>
       <title>Ologies</title>
+      <meta name="description" content="See the latest recommended episodes of Ologies"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Ologies"/>
+      <meta property="og:url" content="https://merry-kulfi-0d62b6.netlify.app/"/>
+
     </Helmet>
-    <section>
-         {/* // need to map the articles to show all of them, not just one */}
+    
+    <Grid>
+             {/* // need to map the articles to show all of them, not just one */}
          {data?.articles?.map((item, index) => (
       <NewsCard
         key={item.petSlug}
@@ -44,7 +52,7 @@ export function Home() {
       
       </NewsCard>
       ) )}
-    </section>
+    </Grid>
     </>
   );
 } 

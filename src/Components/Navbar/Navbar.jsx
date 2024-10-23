@@ -1,9 +1,9 @@
-import style from "./Navbar.module.scss"
+import navstyle from "./Navbar.module.scss"
 import { NavLink } from "react-router-dom"
 
 export function Navbar () {
     return (
-    <nav className={style.navStyle}>
+    <nav className={navstyle.navStyle}>
         <img src="src/assets/icons/INGN-logo.svg" alt="" />
         <ul>
             <li>
