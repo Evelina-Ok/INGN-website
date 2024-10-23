@@ -4,14 +4,18 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MainLayout } from './Layouts/MainLayout';
 import { Home } from './Pages/Home';
 import { SingleNews } from './Pages/SingleNews';
+import { HelmetProvider } from 'react-helmet-async';
 
 import './App.scss'
+
+const helmetContext = {};
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <HelmetProvider context={helmetContext}>
       <Router>
         <Routes>
           <Route path='/' element={<MainLayout />}>
@@ -21,6 +25,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      </HelmetProvider>
     </>
   )
 }

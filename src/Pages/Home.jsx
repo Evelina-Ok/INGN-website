@@ -3,6 +3,8 @@ import request from "graphql-request";
 import { allNews } from "../queries/allNews";
 import { useEffect } from "react";
 import { NewsCard } from "../Components/NewsCard/NewsCard";
+import { Helmet } from "react-helmet-async";
+
 
 export function Home() {
   const { data, isLoading, error } = useQuery({
@@ -21,6 +23,10 @@ export function Home() {
   }
 
   return (
+    <>
+    <Helmet>
+      <title>Ologies</title>
+    </Helmet>
     <section>
          {/* // need to map the articles to show all of them, not just one */}
          {data?.articles?.map((item, index) => (
@@ -39,5 +45,6 @@ export function Home() {
       </NewsCard>
       ) )}
     </section>
+    </>
   );
 } 

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { singleNews } from "../queries/singleNews";
 import { useParams } from "react-router-dom";
 import { SingleCard } from "../Components/SingleCard/SingleCard";
-
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -37,6 +37,9 @@ export function SingleNews ({title, date, author, image, content}) {
     // className={style.textRed}
     return (
     <>
+    <Helmet>
+      <title>{data.article.title} </title>
+    </Helmet>
         <section >
         <SingleCard
         key={data.article.petSlug}
