@@ -1,0 +1,27 @@
+.cookieBanner {
+    width: 40%;
+    color: black;
+    background-color: #fff;
+    height: 25vh;
+    position: fixed;
+    bottom: 50%;
+    left: 25%;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    margin: auto;
+}
+
+section {
+    button {
+        width: 80px;
+        height: 30px;
+        text-align: center;
+        background-color: #fff;
+        border: solid 1px #000;
+
+    }
+    button:hover {
+        background-color: #906e89;
+        border: solid 1px #fff;
+    }
+}
